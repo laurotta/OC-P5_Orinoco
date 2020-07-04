@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="images/favicon.jpg">
+
+  <title>Oriphoto - Panier</title>
+
+</head>
+
+<body>
+
+
+  <!-- Header start -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Site logo -->
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="">
+        </a>
+        <div class="d-inline-flex align-items-center">
+          <a href="panier.html" class="cart-bag icon">
+            <i class="ti-shopping-cart"></i>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Header end -->
+
+  <!-- Banner section star -->
+  <section class="banner bckcolor">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-6 order-1 order-md-0">
+          <div class="banner-content">
+            <p class="plogo"><img src="images/logo2.png" alt=""></p>
+            <h1>Appareils photo vintage</h1>
+          </div>
+        </div>
+        <div class="col-md-6 order-0 order-md-1">
+          <div class="ban-img">
+            <img src="images/ban-1.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Banner section end -->
+
+  <!-- Cart & form start -->
+  <section class="products-in-cart">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Panier</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Article</th>
+                <th>Prix</th>
+              </tr>
+            </thead>
+            <tbody id="cart-tablebody">
+            <!--Insertion des lignes produits par JS-->
+            </tbody>
+          </table>
+          <p class="total">Total : <span id="total"></span></p>
+        </div>
+        <div class="col-sm-6">
+					<h2>Vos coordonnées</h2>
+					<form id="formulaire" name="contact" action="">
+						<div class="form-group">
+							<label for="firstName">Prénom</label><span id="alerte-prénom"></span>
+							<input id="firstName" class="form-control" type="text" name="firstName" maxlength="20" required />
+            </div>
+            <div class="form-group">
+							<label for="lastName">Nom</label><span id="alerte-nom"></span>
+							<input id="lastName" class="form-control" type="text" name="lastName" maxlength="45" required />
+            </div>
+            <div class="form-group">
+							<label for="address">Adresse (numéro et libellé de la voie)</label><span id="alerte-adresse"></span>
+							<input id="address" class="form-control" type="text" name="address" maxlength="60" required />
+            </div>
+            <div class="form-group">
+							<label for="city">Ville</label><span id="alerte-ville"></span>
+							<input id="city" class="form-control" type="text" name="city" maxlength="45" required />
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label><span id="alerte-email"></span>
+							<input id="email" class="form-control" type="email" name="email" required />
+						</div>
+						<button id="submit-btn" type="submit" class="btn btn-default">Passer la commande</button>
+					</form>
+				</div>
+      </div>
+    </div>
+  </section>
+  <!-- Cart & form end -->
+
+  <!-- Footer strat -->
+  <footer class="footer">
+    <div class="container foo-top">
+      <div class="row">
+        <div class="col-md-3 offset-md-1 col-sm-6">
+          <div class="widget widget-social">
+            <h4 class="widget-title">Suivez-nous !</h4>
+            <div class="social-media">
+              <a href="#"><i class="ti-facebook"></i></a>
+              <a href="#"><i class="ti-twitter-alt"></i></a>
+              <a href="#"><i class="ti-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Footer end -->
+
+  <!-- JS -->
+  <script src="js/panier.js"></script>
+  <script src="js/formulaire.js"></script>
+
+</body>
+
+</html>
