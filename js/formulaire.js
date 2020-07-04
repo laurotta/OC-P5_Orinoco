@@ -104,6 +104,7 @@ formValidation.addEventListener('click', function(event) {
     }
 })
 
+// fonction destinée à contacter l'API et à lui envoyer les données
 function sendData(contact, products) {
     let XHR = new XMLHttpRequest();
 

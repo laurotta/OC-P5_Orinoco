@@ -329,6 +329,19 @@ section {
   margin: 2em;
 }
 
+.merci-container {
+  text-align: center;
+  background-color: #fff;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: .3rem;
+  border-bottom: 1px solid #d6d8d9;
+}
+ .bag {
+   font-size: 3rem;
+   color: #e38810;
+ }
+
 /*================*/ 
 /* Footer Section */
 /*================*/
