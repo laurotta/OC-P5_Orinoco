@@ -5,8 +5,8 @@ function obtenirParametre(sVar) {
 
 orderId = obtenirParametre("orderId");
 
-// vérification de l'existence d'un orderId dans l'url
-if (orderId != "") {
+// vérification de l'existence d'un orderId et d'articles
+if (orderId != "" && localStorage.Articles != undefined) {
 
     // initialisation les éléments
     let reference = document.getElementById('réf-commande');
@@ -32,8 +32,15 @@ if (orderId != "") {
         )
     });
 
-// s'il n'y a pas d'orderId indiqué dans l'url, retour à la page index.html
+    // la commande étant terminée, suppression des articles
+    eraseArticle();
+
+// s'il n'y a pas d'orderId ou d'articles
 } else {
-    window.alert("Erreur : cette page n'esiste pas");
+    window.alert("Commande terminée ou inexistante");
     window.location.replace("index.html");
+}
+
+function eraseArticle() {
+    localStorage.removeItem('Articles');
 }

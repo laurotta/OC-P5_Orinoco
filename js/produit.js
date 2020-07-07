@@ -91,6 +91,6 @@ if (id != "") {
 
 // s'il n'y a pas d'id indiqué dans l'url, retour à la page index.html
 } else {
-    window.alert("Erreur : cette page n'esiste pas");
+    window.alert("Erreur : cette page n'existe pas");
     window.location.replace("index.html");
 }

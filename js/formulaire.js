@@ -17,7 +17,7 @@ formValidation.addEventListener('click', function(event) {
 
     let address = document.getElementById('address');
     let addressError = document.getElementById('alerte-adresse');
-    let addressOk = /^[\d]{1,4}[,]?\s[a-zA-Z'àâéèêîïôùûçÀÂÉÈÊÎÏÔÙÛÇ\s-]{2,60}$/;
+    let addressOk = /^[\d]{1,4}[,]?\s[a-zA-Z'àâéèêîïôùûçÀÂÉÈÊÎÏÔÙÛÇ\s-]{2,80}$/;
 
     let city = document.getElementById('city');
     let cityError = document.getElementById('alerte-ville');
@@ -25,7 +25,7 @@ formValidation.addEventListener('click', function(event) {
 
     let email = document.getElementById('email');
     let emailError = document.getElementById('alerte-email');
-    let emailOk = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;   // (){,256} ???
+    let emailOk = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     // objet vide utilisé pour valider les champs
     const validation = {};

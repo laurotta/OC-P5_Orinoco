@@ -66,10 +66,8 @@ async function printProducts() {
     })
 }
 
-printProducts();
-
 // utilisation d'une "expression de la fonction immédiatement invoquée"
-// pour exécuter la fonction asynchrone printProducts
-// (() => {
-//    printProducts();
-// })();
+// pour exécuter automatiquement printProducts
+(() => {
+    printProducts();
+})();
