@@ -34,7 +34,7 @@ formValidation.addEventListener('click', function(event) {
     // si le champ est vide : indication de l'élément à compléter
     // si le format n'est pas respecté : indication de l'élément à corriger
     // si le champ est complété et correct : validation ok
-    if (firstName.validity.valueMissing){
+    if (firstName.value.length == 0){
         firstNameError.textContent = ' Veuillez indiquer votre prénom';
         firstNameError.style.color = 'red';
     } else if (firstNameOk.test(firstName.value) == false) {
@@ -43,7 +43,7 @@ formValidation.addEventListener('click', function(event) {
     } else {
         validation.firstName = true ;
     }
-    if (lastName.validity.valueMissing){
+    if (lastName.value.length == 0){
         lastNameError.textContent = ' Veuillez indiquer votre nom';
         lastNameError.style.color = 'red';
     } else if (lastNameOk.test(lastName.value) == false) {
@@ -52,7 +52,7 @@ formValidation.addEventListener('click', function(event) {
     } else {
         validation.lastName = true ;
     }
-    if (address.validity.valueMissing){
+    if (address.value.length == 0){
         addressError.textContent = ' Veuillez indiquer votre adresse';
         addressError.style.color = 'red';
     } else if (addressOk.test(address.value) == false) {
@@ -61,7 +61,7 @@ formValidation.addEventListener('click', function(event) {
     } else {
         validation.address = true ;
     }
-    if (city.validity.valueMissing){
+    if (city.value.length == 0){
         cityError.textContent = ' Veuillez indiquer votre ville';
         cityError.style.color = 'red';
     } else if (cityOk.test(city.value) == false) {
@@ -70,7 +70,7 @@ formValidation.addEventListener('click', function(event) {
     } else {
         validation.city = true ;
     }
-    if (email.validity.valueMissing){
+    if (email.value.length == 0){
         emailError.textContent = ' Veuillez indiquer votre email';
         emailError.style.color = 'red';
     } else if (emailOk.test(email.value) == false) {
@@ -91,7 +91,7 @@ formValidation.addEventListener('click', function(event) {
 
     // création  de l'objet "product" contenant les id des produits contenus dans le panier
     const products = JSON.parse(localStorage.getItem('Articles'));
-
+    
     // si tout est correct, appel de la fonction qui envoie les données à l'API
     if ((
         (validation.firstName == true) &&

@@ -8,9 +8,10 @@ function getProducts() {
             if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
                 resolve(JSON.parse(this.responseText));
                 console.log("Connexion OK");
-
             } else if (this.readyState < 4) {
-                console.log("readyState " + this.readyState);
+                console.log("readyState ", this.readyState);
+            } else {
+                alert("Erreur de connexion à l'API");
             }
         }
         XHR.open("GET", "http://localhost:3000/api/cameras/");

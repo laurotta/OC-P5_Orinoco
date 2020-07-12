@@ -1,21 +1,20 @@
-window.onload = () => {
+// vérifie que le panier n'est pas vide
+if(localStorage.Articles != null){
 
-    // vérifie que le panier n'est pas vide
-    if(localStorage.Articles != null){
+    // affectation des données du localStorage "Articles"
+    let itemsInCart = JSON.parse(localStorage.Articles);
 
-        // affectation des données du localStorage "Articles"
-        let itemsInCart = JSON.parse(localStorage.Articles);
-
-        // initialisation d'une variable pour le calcul du total
-        let sum = 0;
+    // initialisation d'une variable pour le calcul du total
+    let sum = 0;
     
-        // boucle forEach pour ajouter chaque article au tableau
-        itemsInCart.forEach((id) => {
+    // boucle forEach pour ajouter chaque article au tableau
+    itemsInCart.forEach((id) => {
                     
-            let url = "http://localhost:3000/api/cameras/" + id;
+        let url = "http://localhost:3000/api/cameras/" + id;
 
-            // appel de l'API sur l'id pour récupérer le nom et le prix de l'article
-            fetch(url).then((response) =>
+        // appel de l'API sur l'id pour récupérer le nom et le prix de l'article
+        fetch(url).then((response) => {
+            if (response.ok) {
                 response.json().then((data) => {
 
                     // création des éléments
@@ -35,17 +34,23 @@ window.onload = () => {
                     // affiche nom et prix dans le tableau
                     cellName.textContent = productName;
                     cellPrice.textContent = `${productPrice.toFixed(2)} €`;
-                    
+                        
                     // calcul et affichage du total
                     sum += data.price / 100;
                     totalPlace.textContent = `${sum.toFixed(2)} €`;
                 })
-            )
+            } else {
+                console.log('Mauvaise réponse du réseau');
+            }
+        })
+        .catch(function(error) {
+            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            alert("Erreur de connexion à l'API");
         });
+    });
     
-    // si le panier est vide, retour à la page principale
-    } else {
-        window.alert("Le panier est vide");
-        window.location.replace("index.html");
-    }
+// si le panier est vide, retour à la page principale
+} else {
+    alert("Le panier est vide");
+    window.location.replace("index.html");
 }

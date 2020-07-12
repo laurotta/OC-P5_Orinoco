@@ -22,14 +22,22 @@ if (orderId != "" && localStorage.Articles != undefined) {
                     
         let url = "http://localhost:3000/api/cameras/" + id;
 
-        fetch(url).then((response) =>
-            response.json().then((data) => {
+        fetch(url).then((response) => {
+            if (response.ok) {
+                response.json().then((data) => {
 
-                // clacul du total et affichage du montant
-                sum += data.price / 100;
-                totalAmount.textContent = `${sum.toFixed(2)} €`;
-            })
-        )
+                    // clacul du total et affichage du montant
+                    sum += data.price / 100;
+                    totalAmount.textContent = `${sum.toFixed(2)} €`;
+                })
+            } else {
+                console.log('Mauvaise réponse du réseau');
+            }
+        })
+        .catch(function(error) {
+            console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+            alert("Erreur de connexion à l'API");
+        });
     });
 
     // la commande étant terminée, suppression des articles
