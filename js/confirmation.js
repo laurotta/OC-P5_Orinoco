@@ -31,7 +31,8 @@ if (orderId != "" && localStorage.Articles != undefined) {
                     totalAmount.textContent = `${sum.toFixed(2)} €`;
                 })
             } else {
-                console.log('Mauvaise réponse du réseau');
+                window.alert("Une erreur s'est produite");
+                window.location.replace("index.html");
             }
         })
         .catch(function(error) {

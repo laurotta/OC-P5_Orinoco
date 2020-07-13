@@ -89,19 +89,27 @@ formValidation.addEventListener('click', function(event) {
         email: email.value
     };
 
-    // création  de l'objet "product" contenant les id des produits contenus dans le panier
-    const products = JSON.parse(localStorage.getItem('Articles'));
-    
-    // si tout est correct, appel de la fonction qui envoie les données à l'API
-    if ((
-        (validation.firstName == true) &&
-        (validation.lastName == true) &&
-        (validation.address == true) &&
-        (validation.city == true) &&
-        (validation.email == true))
-        && products != null) {
-        sendData(contact, products);
-    }
+    // vérification que localStorage contient toujours les données
+    const panier = localStorage.getItem('Articles');
+    if(!panier) {
+        alert("Erreur : votre panier est vide");
+        window.location.replace("index.html");
+    } else {
+        
+        // création  de l'objet "product" contenant les id des produits contenus dans le panier
+        const products = JSON.parse(panier);
+            
+        // si tout est correct, appel de la fonction qui envoie les données à l'API
+        if ((
+            (validation.firstName == true) &&
+            (validation.lastName == true) &&
+            (validation.address == true) &&
+            (validation.city == true) &&
+            (validation.email == true))
+            && products != null) {
+            sendData(contact, products);
+        }
+    }   
 })
 
 // fonction destinée à contacter l'API et à lui envoyer les données
